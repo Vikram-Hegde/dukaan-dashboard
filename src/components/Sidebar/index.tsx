@@ -42,7 +42,7 @@ const Sidebar = () => {
 				</div>
 				<div className="nav__credit-points">
 					Available credits
-					<span>222.10</span>
+					<div>222.10</div>
 				</div>
 			</div>
 		</nav>
