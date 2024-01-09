@@ -29,15 +29,15 @@
 		grid-template-columns: 1fr auto;
 	}
 
-	@media (width <= 370px) {
-		padding: 0.75rem 1rem;
+	@media (width <= 500px) {
+		padding: 0.75rem;
 	}
 
 	&__menu-icon {
 		display: none;
 
 		@media (width <= 900px) {
-			display: block;
+			display: flex;
 		}
 	}
 
@@ -69,7 +69,9 @@
 		display: none;
 
 		@media (width <= 580px) {
-			display: block;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 	}
 
@@ -103,8 +105,8 @@
 .main {
 	padding: 2.25rem 2rem;
 
-	@media (width <= 370px) {
-		padding: 2rem 1rem;
+	@media (width <= 500px) {
+		padding: 2rem 0.75rem;
 	}
 }
 

@@ -19,10 +19,7 @@ select {
 	touch-action: manipulation;
 }
 
-img,
-picture,
-svg,
-canvas {
+img {
 	display: block;
 	max-inline-size: 100%;
 	block-size: auto;
