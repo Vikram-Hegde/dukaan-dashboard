@@ -7,25 +7,32 @@ import ChevronLeftIcon from "@/assets/chevron-left.svg?react"
 import ChevronRightIcon from "@/assets/chevron-right.svg?react"
 import SortIcon from "@/assets/sort.svg?react"
 import DownloadIcon from "@/assets/download.svg?react"
+import MenuIcon from "@/assets/menu.svg?react"
 
-const Dashboard = () => {
+type DashboardProps = {
+	handleToggle: (e: React.MouseEvent) => void
+}
+
+const Dashboard: React.FC<DashboardProps> = ({ handleToggle }) => {
 	return (
-		<>
+		<section className="dashboard">
 			<header className="header">
 				<div className="header__heading">
-					<h3>Payments</h3>
+					<MenuIcon className="header__menu-icon" onClick={handleToggle} />
+					Payments
 					<span className="header__help">
 						<HelpIcon />
-						How it works?
+						<span>How it works?</span>
 					</span>
 				</div>
 				<div className="header__search">
-					<div className="header__input-wrapper">
-						<SearchIcon />
-						<input type="text" placeholder="Search features, tutorials, etc." />
-					</div>
+					<SearchIcon />
+					<input type="search" placeholder="Search features, tutorials, etc." />
 				</div>
 				<div className="header__options">
+					<button className="header__search-menu">
+						<SearchIcon width="1rem" height="1rem" />
+					</button>
 					<button>
 						<AnnouncementIcon />
 					</button>
@@ -37,10 +44,10 @@ const Dashboard = () => {
 			<main className="main">
 				<section className="overview">
 					<div className="overview__header">
-						Overview
+						<h3>Overview</h3>
 						<div className="overview__timeline">
 							Last Month
-							<ChevronDownIcon />
+							<ChevronDownIcon width="1rem" height="1rem" />
 						</div>
 					</div>
 					<div className="overview__items">
@@ -50,71 +57,83 @@ const Dashboard = () => {
 						</div>
 						<div className="overview__item">
 							<div className="overview__label">Amount received</div>
-							<div className="overview__value">₹ 23,92,312.19</div>
+							<div className="overview__value">₹23,92,312.19</div>
 						</div>
 					</div>
 				</section>
 				<section className="transactions">
 					<h3 className="transactions__header">Transactions | This Month</h3>
-					<div className="transactions__options">
-						<div className="transactions__search">
-							<SearchIcon />
-							<input type="text" placeholder="Search by order ID..." />
+					<div className="transactions__table">
+						<div className="transactions__options">
+							<div className="transactions__search">
+								<SearchIcon />
+								<input type="search" placeholder="Search by order ID..." />
+							</div>
+							<button className="transactions__sort">
+								Sort <SortIcon />
+							</button>
+							<button className="transactions__download">
+								<DownloadIcon />
+							</button>
 						</div>
-						<button>
-							Sort <SortIcon />
-						</button>
-						<button>
-							<DownloadIcon />
-						</button>
-					</div>
-					<table>
-						<tr>
-							<th>Order ID</th>
-							<th>
-								Order Date <ChevronDownFilledIcon />
-							</th>
-							<th>Order amount</th>
-							<th>
-								Transaction fees <HelpIcon />
-							</th>
-						</tr>
-						{Array.from({ length: 19 }).map((_, index) => (
-							<tr key={index}>
-								<td>
-									<a href="#">#281209</a>
-								</td>
-								<td>7 July, 2023</td>
-								<td>₹ 1,278.23</td>
-								<td>₹ 22</td>
-							</tr>
-						))}
-					</table>
+						<div className="table__wrapper">
+							<table>
+								<tbody>
+									<tr>
+										<th>Order ID</th>
+										<th>
+											<div className="heading__wrapper">
+												Order Date{" "}
+												<ChevronDownFilledIcon width="0.5rem" height="0.5rem" />
+											</div>
+										</th>
+										<th>Order amount</th>
+										<th>
+											<div className="heading__wrapper">
+												Transaction fees{" "}
+												<HelpIcon width="0.875rem" height="0.875rem" />
+											</div>
+										</th>
+									</tr>
+									{Array.from({ length: 19 }).map((_, index) => (
+										<tr key={index}>
+											<td>
+												<a href="#">#281209</a>
+											</td>
+											<td>7 July, 2023</td>
+											<td>₹1,278.23</td>
+											<td>₹22</td>
+										</tr>
+									))}
+								</tbody>
+							</table>
+						</div>
 
-					<div className="transactions__pagination">
-						<button>
-							<ChevronLeftIcon /> Previous
-						</button>
-						<div className="transactions__pages">
-							<button>1</button>
-							<button>...</button>
-							<button>10</button>
-							<button>11</button>
-							<button>12</button>
-							<button>13</button>
-							<button>14</button>
-							<button>15</button>
-							<button>16</button>
-							<button>17</button>
-							<button>18</button>
+						<div className="transactions__pagination">
+							<button className="btn btn--outline">
+								<ChevronLeftIcon /> Previous
+							</button>
+							<div className="transactions__pages">
+								<button>1</button>
+								<button>...</button>
+								<button className="btn btn--active">10</button>
+								<button>11</button>
+								<button>12</button>
+								<button>13</button>
+								<button>14</button>
+								<button>15</button>
+								<button>16</button>
+								<button>17</button>
+								<button>18</button>
+							</div>
+							<button className="btn btn--outline">
+								Next <ChevronRightIcon />
+							</button>
 						</div>
-						<button>
-							Next <ChevronRightIcon />
-						</button>
 					</div>
 				</section>
 			</main>
-		</>
+		</section>
 	)
 }
 

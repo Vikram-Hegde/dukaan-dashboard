@@ -25,8 +25,8 @@ const Sidebar = () => {
 				<div className="nav__profile-name">
 					<h3>Nishyan</h3>
 					<a href="#">Visit Store</a>
-					<ChevronDownIcon />
 				</div>
+				<ChevronDownIcon />
 			</div>
 			<ul className="nav__items">
 				{navItems.map((item, index) => (
@@ -40,9 +40,9 @@ const Sidebar = () => {
 				<div className="icon-wrapper">
 					<WalletIcon />
 				</div>
-				<div className="nav__credit-points">
+				<div className="nav__credits-points">
 					Available credits
-					<div>222.10</div>
+					<div className="nav__credits-value">222.10</div>
 				</div>
 			</div>
 		</nav>
