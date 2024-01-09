@@ -1,6 +1,12 @@
 :root {
-	--secondary: hsl(226, 36%, 18%);
+	--secondary: hsl(226 36% 18%);
+	--primary: hsl(206 80% 39%);
 
 	--text-primary: hsl(0 0% 100%);
-	--text-secondary: hsl(0 0% 100% / 0.8);
+	--text-secondary: color-mix(in srgb, var(--text-primary) 80%, transparent);
+
+	--white-100: hsl(0 0% 100%);
+	--white-200: hsl(0 0% 95%);
+	--white-300: hsl(0 0% 90%);
+	--white-400: hsl(0 0% 85%);
 }
